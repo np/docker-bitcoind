@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install -y aria2 && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD https://bitcoin.org/bin/bitcoin-core-0.10.0/bitcoin-0.10.0-linux64.tar.gz
+ADD https://bitcoin.org/bin/bitcoin-core-0.10.0/bitcoin-0.10.0-linux64.tar.gz bitcoin-0.10.0-linux64.tar.gz
 RUN echo '1443d9ea1d21c5999543112c2081316713854f99199e0a61c867b18dd61727c8  bitcoin-0.10.0-linux64.tar.gz' | sha256sum -c
 ADD tar -C /usr/local/ --strip-components=1 -xzf bitcoin-0.10.0-linux64.tar.gz
 
