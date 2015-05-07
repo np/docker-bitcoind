@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 ADD https://bitcoin.org/bin/bitcoin-core-0.10.0/bitcoin-0.10.0-linux64.tar.gz bitcoin-0.10.0-linux64.tar.gz
 RUN echo '4be12ac4e1a2e1a27135009eb3dc003529f9e56c11df97e59c5b0415f79ed4ec  bitcoin-0.10.0-linux64.tar.gz' | sha256sum -c
-ADD tar -C /usr/local/ --strip-components=1 -xzf bitcoin-0.10.0-linux64.tar.gz
+RUN tar -C /usr/local/ --strip-components=1 -xzf bitcoin-0.10.0-linux64.tar.gz
 
 ENV HOME /bitcoin
 RUN useradd -s /bin/bash -m -d /bitcoin bitcoin
