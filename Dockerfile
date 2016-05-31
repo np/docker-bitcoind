@@ -1,9 +1,7 @@
 FROM ubuntu:14.04
 MAINTAINER Nicolas Pouillard [https://nicolaspouillard.fr]
 
-RUN apt-get update && \
-    apt-get install -y aria2 && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD https://bitcoin.org/bin/bitcoin-core-0.10.0/bitcoin-0.10.0-linux64.tar.gz bitcoin-0.10.0-linux64.tar.gz
 RUN echo '4be12ac4e1a2e1a27135009eb3dc003529f9e56c11df97e59c5b0415f79ed4ec  bitcoin-0.10.0-linux64.tar.gz' | sha256sum -c
@@ -24,7 +22,7 @@ USER bitcoin
 
 VOLUME ["/bitcoin"]
 
-EXPOSE 8332 8333 6881 6882
+EXPOSE 8332 8333 18332 18333
 
 WORKDIR /bitcoin
 
