@@ -3,9 +3,9 @@ MAINTAINER Nicolas Pouillard [https://nicolaspouillard.fr]
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD https://bitcoin.org/bin/bitcoin-core-0.12.1/bitcoin-0.12.1-linux64.tar.gz bitcoin-0.12.1-linux64.tar.gz
-RUN echo '54aca14b7512801ab78cc93f8576e1b66364a890e8017e8a187e4bf0209fd28c  bitcoin-0.12.1-linux64.tar.gz' | sha256sum -c
-RUN tar -C /usr/local/ --strip-components=1 -xzf bitcoin-0.12.1-linux64.tar.gz
+ADD https://github.com/btcdrak/bitcoin/releases/download/v0.12.1-addrindex/bitcoin-0.12.1-addrindex-linux64.tar.gz bitcoin-0.12.1-addrindex-linux64.tar.gz
+RUN echo '77da81fd491cb76eeb6c195435b3917f2bba6ba684557a9caaa6a21de585d54b  bitcoin-0.12.1-addrindex-linux64.tar.gz' | sha256sum -c
+RUN tar -C /usr/local/ --strip-components=1 -xzf bitcoin-0.12.1-addrindex-linux64.tar.gz
 
 ENV HOME /bitcoin
 RUN useradd -s /bin/bash -m -d /bitcoin bitcoin
